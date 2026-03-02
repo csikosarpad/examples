@@ -1,0 +1,65 @@
+@import url(../../css/main.css);
+
+body {
+  margin: 0;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+  /*align-items: center;*/
+  justify-content: center;
+}
+
+.piechart {
+  width: 360px;
+  aspect-ratio: 1 / 1;
+  border-radius: 9999px;
+  position: relative;
+  background: conic-gradient(
+    rgb(59, 130, 246) 0%,
+    rgb(59, 130, 246) 40%,
+    rgb(6, 182, 212) 40%,
+    rgb(6, 182, 212) 65%,
+    rgb(52, 211, 153) 65%,
+    rgb(52, 211, 153) 83%,
+    rgb(251, 191, 36) 83%,
+    rgb(251, 191, 36) 94%,
+    rgb(251, 113, 133) 94%,
+    rgb(251, 113, 133) 100%
+  );
+  &.animated {
+    animation: spin2 4s linear infinite;
+    ::after {
+      animation: spin 3s linear infinite;
+    }
+  }
+}
+
+.piechart::after {
+  content: '';
+  position: absolute;
+  inset: 25%;
+  background: var(--bgcolor);
+  border-radius: 9999px;
+  box-shadow: inset -54px -31px 98px blue;
+  /*animation: spin 3s linear infinite;*/
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin2 {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
