@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="hu">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Solar system - Toy Modell – CSS animation</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="infopanel.css" />
+</head>
+
+<body>
+
+    <div id="info-panel">
+        <button id="toggle-btn" class='toggle-btn open'>
+            <h2>Toy Modell</h2>
+        </button>
+
+        <div id="info-content">
+            <p>This demonstration is for illustrative purposes only; the distances and diameters are grossly scaled
+                relative to the Sun.</p>
+            <h3>Parts of the Solar System</h3>
+            <ul>
+                <li><strong>Sun</strong>: approximately 333,000 times the mass of Earth, diameter of approximately 1.39
+                    million km.</li>
+                <li><strong>Planets</strong>: Mercury to Neptune, from the inner rocky planets to the outer gas giants.
+                </li>
+                <li><strong>Orbits</strong>: ellipses, nearly in the same plane as the solar wind.</li>
+            </ul>
+            <h3>Planet Data (Real Averages)</h3>
+            <table>
+                <tr>
+                    <th>Planet</th>
+                    <th>Diameter (km)</th>
+                    <th>Distance from Sun (AU)</th>
+                    <th>Orbital Period (years)</th>
+                </tr>
+                <tr>
+                    <td>Mercury</td>
+                    <td>4 880</td>
+                    <td>0.39</td>
+                    <td>0.24</td>
+                </tr>
+                <tr>
+                    <td>Venus</td>
+                    <td>12 104</td>
+                    <td>0.72</td>
+                    <td>0.62</td>
+                </tr>
+                <tr>
+                    <td>Earth </td>
+                    <td>12 742</td>
+                    <td>1.00</td>
+                    <td>1.00</td>
+                </tr>
+                <tr>
+                    <td>Mars</td>
+                    <td>6 779</td>
+                    <td>1.52</td>
+                    <td>1.88</td>
+                </tr>
+                <tr>
+                    <td>Jupiter</td>
+                    <td>139 820</td>
+                    <td>5.20</td>
+                    <td>11.86</td>
+                </tr>
+                <tr>
+                    <td>Saturnus</td>
+                    <td>116 460</td>
+                    <td>9.58</td>
+                    <td>29.46</td>
+                </tr>
+                <tr>
+                    <td>Uranus</td>
+                    <td>50 724</td>
+                    <td>19.20</td>
+                    <td>84.01</td>
+                </tr>
+                <tr>
+                    <td>Neptune</td>
+                    <td>49 244</td>
+                    <td>30.05</td>
+                    <td>164.8</td>
+                </tr>
+            </table>
+            <p>The above values help compare with the simplified pixel scale used in the code.</p>
+        </div>
+    </div>
+    <div class="zoom-container" id="zoom">
+        <div class="solar-system">
+            <div class="sun">
+                <span class='name'>Sun</span>
+            </div>
+
+            <div class="orbit orbit-mercury">
+                <div class="planet mercury">
+                    <span class='name'>Mercury</span>
+                </div>
+            </div>
+            <div class="orbit orbit-venus">
+                <div class="planet venus">
+                    <span class='name'>Venus</span>
+                </div>
+            </div>
+            <div class="orbit orbit-earth">
+                <div class="planet earth">
+                    <span class='name'>Earth</span>
+                </div>
+            </div>
+            <div class="orbit orbit-mars">
+                <div class="planet mars">
+                    <span class='name'>Mars</span>
+                </div>
+            </div>
+            <div class="orbit orbit-jupiter">
+                <div class="planet jupiter">
+                    <span class='name'>Jupiter</span>
+                </div>
+            </div>
+            <div class="orbit orbit-saturn">
+                <div class="planet saturn">
+                    <span class='name'>Saturn</span>
+                </div>
+            </div>
+            <div class="orbit orbit-uranus">
+                <div class="planet uranus">
+                    <span class='name'>Uranus</span>
+                </div>
+            </div>
+            <div class="orbit orbit-neptune">
+                <div class="planet neptune">
+                    <span class='name'>Neptune</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /* Simple zoom with mouse wheel */
+        let scale = 1;
+        const zoom = document.getElementById("zoom");
+
+        window.addEventListener("wheel", e => {
+            e.preventDefault();
+            scale += e.deltaY * -0.001;
+            scale = Math.min(Math.max(0.2, scale), 3);
+            zoom.style.transform = `scale(${scale})`;
+        }, { passive: false });
+    </script>
+    <script>
+        const info = document.getElementById('info-content');
+        const toggleButton = document.getElementById('toggle-btn');
+        let visible = true;
+        toggleButton.addEventListener('click', () => {
+            visible = !visible;
+            info.style.display = visible ? 'block' : 'none';
+            toggleButton.classList.toggle('closed', !visible);
+            toggleButton.classList.toggle('open', visible);
+        });
+    </script>
+</body>
+
+</html>
