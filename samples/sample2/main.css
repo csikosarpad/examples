@@ -141,6 +141,31 @@ body {
   --radius: calc(190px - var(--diameter) / 2);
 }
 
+/* Asteroid belt */
+/* place between Mars (380px) and Jupiter (520px) orbits */
+.orbit-asteroid {
+  /* --diameter: 480px; */
+  --diameter: 615px; /*TODO check value */
+  width: var(--diameter);
+  height: var(--diameter);
+  animation-duration: 70s;
+}
+.asteroid-belt {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(
+    circle,
+    transparent 49%,
+    rgba(200, 200, 200, 0.4) 49%,
+    rgba(200, 200, 200, 0.4) 51%,
+    transparent 51%
+  );
+  border-radius: 50%;
+}
+
 /* Jupiter */
 .orbit-jupiter {
   width: 520px;
