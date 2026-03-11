@@ -7,7 +7,7 @@
 // === EVENT DELEGATION SYSTEM ===
 // ==========================================
 
-class EventDispatcher {
+export class EventDispatcher {
   constructor() {
     this.handlers = new Map();
     this.setup();
@@ -54,7 +54,7 @@ class EventDispatcher {
 // === VIRTUAL DOM SYSTEM ===
 // ==========================================
 
-class VirtualDOM {
+export class VirtualDOM {
   constructor() {
     this.componentCache = new Map(); // Komponensenként külön cache
     this.componentStats = new Map(); // Komponensenként külön statisztika
@@ -206,7 +206,7 @@ class VirtualDOM {
 // === COMPONENT REGISTRY ===
 // ==========================================
 
-class ComponentRegistry {
+export class ComponentRegistry {
   constructor(virtualDOM) {
     this.components = new Map();
     this.currentComponentId = null;
@@ -316,9 +316,9 @@ function hasDependenciesChanged(oldDeps, newDeps) {
 // === GLOBÁLIS INTÉZMÉNYEK ===
 // ==========================================
 
-const eventDispatcher = new EventDispatcher();
-const virtualDOM = new VirtualDOM();
-const componentRegistry = new ComponentRegistry(virtualDOM);
+export const eventDispatcher = new EventDispatcher();
+export const virtualDOM = new VirtualDOM();
+export const componentRegistry = new ComponentRegistry(virtualDOM);
 
 // Globális monitor frissítése
 function updateGlobalMonitor() {
@@ -339,4 +339,6 @@ function updateGlobalMonitor() {
   }
 }
 
-console.log('✅ React Lite Core Framework betöltve');
+//console.log('✅ React Lite Core Framework betöltve');
+export { useState, useEffect };
+export { updateGlobalMonitor };

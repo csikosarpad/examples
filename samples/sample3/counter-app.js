@@ -1,3 +1,12 @@
+import {
+  eventDispatcher,
+  componentRegistry,
+  virtualDOM,
+  useState,
+  useEffect,
+  updateGlobalMonitor,
+} from './reactLite-core.js';
+
 // ==========================================
 // === COUNTER APP - ALKALMAZÁS LOGIKA ===
 // ==========================================
@@ -8,7 +17,7 @@
 // ==========================================
 
 // Reusable Counter komponens (Props-al paraméterezhető)
-function Counter(props = {}) {
+export function Counter(props = {}) {
   const { label = 'Számláló', step = 1, id = 'unknown' } = props;
   const [count, setCount] = useState(0);
 
@@ -102,11 +111,5 @@ componentRegistry.register('counter3', Counter, '#root3', {
   step: 10,
   id: 'counter3',
 });
-
-// Összes komponens inicialis renderelése
-componentRegistry.renderAll();
-
-// Globális monitor inicializálása
-updateGlobalMonitor();
 
 console.log('✅ Counter App inicializálva');
