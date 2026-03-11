@@ -31,41 +31,42 @@ body {
     border-radius: 4px;
     background-color: rgba(255, 255, 255, 0.1);
   }
-}
 
-/* Sun */
-.sun {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, #ffec97, #ffb300);
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 40px #ffb300;
+  /* Sun */
+  .sun {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, #ffec97, #ffb300);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 40px #ffb300;
+  }
 }
 
 /* Orbits */
 .orbit {
   position: absolute;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   border-radius: 50%;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   animation: orbit linear infinite;
+
+  .planet {
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translateX(var(--radius));
+    transform-origin: calc(-1 * var(--radius)) center;
+  }
 }
 
 /* Planets */
-.planet {
-  position: absolute;
-  border-radius: 50%;
-  top: 50%;
-  left: 50%;
-  transform: translateX(var(--radius));
-  transform-origin: calc(-1 * var(--radius)) center;
-}
 
 @keyframes orbit {
   from {
@@ -88,9 +89,8 @@ body {
 
 .mercury {
   --diameter: 4px;
-  /*--radius: calc(100px - var(--diameter) / 2);*/
-  --radius: 100px;
-  width: var(--diameter);
+  --radius: calc(100px - var(--diameter) / 2) /* --radius: 100px; */
+    width: var(--diameter);
   height: var(--diameter);
   background: #bbb;
 }
@@ -107,8 +107,7 @@ body {
   width: var(--diameter);
   height: var(--diameter);
   background: #e0b36b;
-  /* --radius: calc(130px - var(--diameter) / 2); */
-  --radius: 130px;
+  --radius: calc(130px - var(--diameter) / 2);
 }
 
 /* Earth */
